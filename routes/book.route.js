@@ -4,11 +4,11 @@ const router = express.Router();
 const bookController = require("../controllers/book.controllers");
 
 router
-  .route("/books")
+  .route("/")
   .get(bookController.getAllBooks)
   .post(bookController.addBook);
 router
-  .route("/book/:id")
+  .route("/:id")
   .get(bookController.getBookById)
   .delete(bookController.deleteBookById)
   .patch(bookController.updateBookById);
