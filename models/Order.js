@@ -1,3 +1,4 @@
+/*  TP1_1/models/Order.js */
 const mongoose = require("mongoose");
 const orderSchema = new mongoose.Schema({
   orderDate: {
@@ -11,10 +12,12 @@ const orderSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: "Customer",
   },
-  books:[{
-    type: mongoose.Types.ObjectId,
-    ref: "Book",
-  }]
+  books: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Book",
+    },
+  ],
 });
 const OrderModel = mongoose.model("Order", orderSchema);
 module.exports = OrderModel;

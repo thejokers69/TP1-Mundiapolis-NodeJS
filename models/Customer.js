@@ -1,3 +1,4 @@
+/*  TP1_1/models/Customer.js */
 const mogoose = require("mongoose");
 const customerSchema = new mogoose.Schema({
   fName: {
