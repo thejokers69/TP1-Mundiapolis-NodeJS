@@ -1,5 +1,5 @@
-const bookService = require("../services/books_services");
 /*  TP1_1/controllers/book.controllers.js */
+const bookService = require("../services/books_services");
 // const BookModel = require("../models/Book");
 /*const books = [
   { id: 1, title: "ExpressJS programming", price: 20 },
@@ -32,10 +32,19 @@ async function getBookById(req, res) {
 }
 
 async function addBook(req, res) {
-  const book = await bookService.addBook(req.body);
-  // const book = await BookModel.create(req.body);
-  res.json(book);
+  const {title, author, price}= req.body;
+  if (!title || !author) {
+    return res.status(400).json({ error: "Title and author are required." });
+  }
 
+  try {
+    const book = await bookService.addBook(req.body);
+    res.json(book);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+  // const book = await BookModel.create(req.body);
+  // res.json(book);
   // book.id = books[books.length - 1].id + 1;
   // books.push(book);
   // res.send("The book is added.");

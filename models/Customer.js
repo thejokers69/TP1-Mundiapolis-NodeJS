@@ -1,6 +1,6 @@
-/*  TP1_1/models/Customer.js */
-const mogoose = require("mongoose");
-const customerSchema = new mogoose.Schema({
+/*  TP1-MUNDIAPOLIS-NODEJS/models/Order.js */
+const mongoose = require("mongoose");
+const customerSchema = new mongoose.Schema({
   fName: {
     type: String,
     required: true,
@@ -22,11 +22,11 @@ const customerSchema = new mogoose.Schema({
   },
   orders: [
     {
-      type: mogoose.Types.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: "Order",
     },
   ],
 });
 
-const CustomerModel = mogoose.model("Customer", customerSchema);
+const CustomerModel = mongoose.model("Customer", customerSchema);
 module.exports = CustomerModel;

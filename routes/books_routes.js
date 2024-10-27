@@ -1,7 +1,8 @@
-/*  TP1_1/routes/books_routes.js */
+/*  TP1-MUNDIAPOLIS-NODEJS/routes/books_routes.js */
 const express = require("express");
-const router = express.Router();
 const bookController = require("../controllers/books_controller");
+
+const router = express.Router();
 
 router.route("/").get(bookController.getAllBooks).post(bookController.addBook);
 router

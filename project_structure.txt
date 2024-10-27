@@ -1,16 +1,12 @@
 .
 |-- README.md
 |-- controllers
-|   |-- book.controllers.js
 |   |-- books_controller.js
-|   |-- orders_controller 2
 |   `-- orders_controller.js
 |-- index.js
 |-- models
 |   |-- Book.js
-|   |-- Customer 2.js
 |   |-- Customer.js
-|   |-- Order 2.js
 |   `-- Order.js
 |-- node_modules
 |   |-- @mongodb-js
@@ -2840,17 +2836,11 @@
 |-- playground-1.mongodb.js
 |-- project_structure.txt
 |-- routes
-|   |-- book.route.js
-|   |-- books_routes 2.js
 |   |-- books_routes.js
-|   |-- orders_routes 2.js
 |   `-- orders_routes.js
 |-- services
-|   |-- bookServices.js
-|   |-- books_services 2.js
 |   |-- books_services.js
-|   |-- orders_services 2.js
-|   `-- orders_services.js
+|   `-- orders_services 2.js
 `-- structure.txt
 
-310 directories, 2544 files
+310 directories, 2534 files

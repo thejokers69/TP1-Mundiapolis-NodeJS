@@ -1,17 +1,17 @@
-
+/*  TP1-MUNDIAPOLIS-NODEJS/models/Book.js */
 const { type } = require("express/lib/response");
-const mogoose = require("mongoose");
-const bookSchema = new mogoose.Schema({
+const mongoose = require("mongoose");
+const bookSchema = new mongoose.Schema({
   title: { type: String, required: true },
   price: { type: Number, default: 0 },
   date_publication: { type: Date, default: Date.now },
   author: { type: String, required: true },
   orders: [
     {
-      type: mogoose.Types.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: "Order",
     },
   ],
 });
-const BookModel = mogoose.model("Book", bookSchema);
+const BookModel = mongoose.model("Book", bookSchema);
 module.exports = BookModel;
