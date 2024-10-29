@@ -10,4 +10,5 @@ router.route("/:id")
   .delete(customerController.deleteCustomerById)
   .patch(customerController.updateCustomerById);
 
-module.exports = router;    
+router.route("/login").post(customerController.login);
+module.exports = router;

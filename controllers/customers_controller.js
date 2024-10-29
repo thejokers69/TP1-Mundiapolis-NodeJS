@@ -1,4 +1,4 @@
-// controllers/customers_controller.js
+// TP1-MUNDIAPOLIS-NODEJS/controllers/customers_controller.js
 const customerService = require("../services/customers_services");
 
 async function getAllCustomers(req, res) {
@@ -22,7 +22,7 @@ async function getCustomerById(req, res) {
 
 async function addCustomer(req, res) {
   try {
-    const customer = await customerService.addCustomer(req.body);
+    const customer = await customerService.addUser(req.body); //addCustomer => addUser
     res.json(customer);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -51,6 +51,18 @@ async function updateCustomerById(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
+async function login(req, res) {
+  try {
+    const isAuthenticated = await customerService.login(req.body);
+    if (isAuthenticated) {
+      res.status(200).json({ message: "Connected successfully" });
+    } else {
+      res.status(401).json({ message: "Email or password is incorrect" });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
 
 module.exports = {
   getAllCustomers,
@@ -58,4 +70,5 @@ module.exports = {
   addCustomer,
   deleteCustomerById,
   updateCustomerById,
+  login,
 };

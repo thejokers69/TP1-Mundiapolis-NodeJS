@@ -1,7 +1,7 @@
 /*  TP1-MUNDIAPOLIS-NODEJS/index.js */
 const express = require("express");
-const Book=require("./models/Book");
-const Customer=require("./models/Customer");
+const Book = require("./models/Book");
+const Customer = require("./models/Customer");
 const Order = require("./models/Order");
 
 const bookRouter = require("./routes/books_routes");
@@ -28,7 +28,7 @@ app.use("/api", apiRouter);
 //   try {
 //     const books = await Book.find();
 //     const orders = await Order.find();
-//     const customers = await Customer.find(); 
+//     const customers = await Customer.find();
 
 //     res.json({ books, orders, customers });
 //   } catch (error) {
@@ -36,9 +36,6 @@ app.use("/api", apiRouter);
 //     res.status(500).json({ error: "Server error" });
 //   }
 // });
-
-
-
 
 app.get("/", (req, res) => {
   res.send("My first express app");
