@@ -29,7 +29,14 @@ async function deleteCustomerById(id) {
 }
 
 async function updateCustomerById(id, customerData) {
-  return await CustomerModel.findByIdAndUpdate(id, customerData, { new: true });
+  const allowedFields = ['name', 'email', 'address', 'phone']; // specify allowed fields
+  const updateData = {};
+  for (const key of allowedFields) {
+    if (customerData[key] !== undefined) {
+      updateData[key] = customerData[key];
+    }
+  }
+  return await CustomerModel.findByIdAndUpdate(id, { $set: updateData }, { new: true });
 }
 
 async function login(user){
