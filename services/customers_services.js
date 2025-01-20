@@ -33,7 +33,7 @@ async function updateCustomerById(id, customerData) {
 }
 
 async function login(user){
-  const customer=await CustomerModel.findOne({"email":user.email});
+  const customer=await CustomerModel.findOne({"email": { $eq: user.email } });
   if(customer){
     const resultat= await bcrypt.compare(user.password,customer.password);
     if (resultat ){
