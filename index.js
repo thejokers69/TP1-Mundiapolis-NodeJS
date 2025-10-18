@@ -1,4 +1,3 @@
-/*  TP1-MUNDIAPOLIS-NODEJS/index.js */
 const express = require("express");
 const Book = require("./models/Book");
 const Customer = require("./models/Customer");
@@ -23,19 +22,6 @@ app.use("/api/books", bookRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/customers", customerRoute);
 app.use("/api", apiRouter);
-// API route to fetch all collections data
-// app.get("/api", async (req, res) => {
-//   try {
-//     const books = await Book.find();
-//     const orders = await Order.find();
-//     const customers = await Customer.find();
-
-//     res.json({ books, orders, customers });
-//   } catch (error) {
-//     console.error("Error fetching data:", error);
-//     res.status(500).json({ error: "Server error" });
-//   }
-// });
 
 app.get("/", (req, res) => {
   res.send("My first express app");

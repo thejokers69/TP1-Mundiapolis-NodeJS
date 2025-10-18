@@ -1,4 +1,3 @@
-/*  TP1-MUNDIAPOLIS-NODEJS/services/books_services.js */
 const BookModel = require("../models/Book");
 
 async function getAllBooks() {
@@ -10,10 +9,10 @@ async function getBookById(idB) {
 async function addBook(book) {
   return await BookModel.create(book);
 }
-async function deleteBook(idB) {
-  return await BookModel.findByIdAndDelete(idb);
+async function deleteBookById(idB) {
+  return await BookModel.findByIdAndDelete(idB);
 }
-async function updateBook(idB, books) {
-  return await BookModel.findByIdAndUpdate(idb, books);
+async function updateBookById(idB, bookData) {
+  return await BookModel.findByIdAndUpdate(idB, bookData, { new: true });
 }
-module.exports = { getAllBooks, getBookById, addBook, deleteBook, updateBook };
+module.exports = { getAllBooks, getBookById, addBook, deleteBookById, updateBookById };

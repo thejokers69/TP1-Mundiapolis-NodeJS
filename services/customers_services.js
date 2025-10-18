@@ -1,5 +1,3 @@
-// TP1-MUNDIAPOLIS-NODEJS/services/customers_services.js
-const { LEGAL_TCP_SOCKET_OPTIONS } = require("mongodb");
 const CustomerModel = require("../models/Customer");
 const bcrypt = require("bcrypt");
 
@@ -11,9 +9,6 @@ async function getCustomerById(id) {
   return await CustomerModel.findById(id);
 }
 
-// async function addCustomer(customer) {
-//   return await CustomerModel.create(customer);
-// }
 async function addUser(user) {
   if (!user.password) {
     throw new Error("Password is required");
@@ -29,7 +24,7 @@ async function deleteCustomerById(id) {
 }
 
 async function updateCustomerById(id, customerData) {
-  const allowedFields = ['name', 'email', 'address', 'phone']; // specify allowed fields
+  const allowedFields = ['fName', 'lName', 'email', 'adress'];
   const updateData = {};
   for (const key of allowedFields) {
     if (customerData[key] !== undefined) {
@@ -39,11 +34,11 @@ async function updateCustomerById(id, customerData) {
   return await CustomerModel.findByIdAndUpdate(id, { $set: updateData }, { new: true });
 }
 
-async function login(user){
-  const customer=await CustomerModel.findOne({"email": { $eq: user.email } });
-  if(customer){
-    const resultat= await bcrypt.compare(user.password,customer.password);
-    if (resultat ){
+async function login(user) {
+  const customer = await CustomerModel.findOne({ email: user.email });
+  if (customer) {
+    const isValidPassword = await bcrypt.compare(user.password, customer.password);
+    if (isValidPassword) {
       return true;
     }
   }
@@ -53,7 +48,6 @@ async function login(user){
 module.exports = {
   getAllCustomers,
   getCustomerById,
-  // addCustomer,
   addUser,
   deleteCustomerById,
   updateCustomerById,

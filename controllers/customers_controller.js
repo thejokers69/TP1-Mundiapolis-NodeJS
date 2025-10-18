@@ -1,4 +1,3 @@
-// TP1-MUNDIAPOLIS-NODEJS/controllers/customers_controller.js
 const customerService = require("../services/customers_services");
 
 async function getAllCustomers(req, res) {
@@ -22,7 +21,7 @@ async function getCustomerById(req, res) {
 
 async function addCustomer(req, res) {
   try {
-    const customer = await customerService.addUser(req.body); //addCustomer => addUser
+    const customer = await customerService.addUser(req.body);
     res.json(customer);
   } catch (error) {
     res.status(500).json({ error: error.message });

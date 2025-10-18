@@ -1,4 +1,3 @@
-/*  TP1-MUNDIAPOLIS-NODEJS/services/orders_services.js */
 const OrderModel = require("../models/Order");
 
 async function getAllOrders() {

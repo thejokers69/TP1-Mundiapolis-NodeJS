@@ -1,4 +1,3 @@
-/*  TP1-MUNDIAPOLIS-NODEJS/routes/books_routes.js */
 const express = require("express");
 const bookController = require("../controllers/books_controller");
 
