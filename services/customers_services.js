@@ -29,11 +29,18 @@ async function deleteCustomerById(id) {
 }
 
 async function updateCustomerById(id, customerData) {
-  return await CustomerModel.findByIdAndUpdate(id, customerData, { new: true });
+  const allowedFields = ['name', 'email', 'address', 'phone']; // specify allowed fields
+  const updateData = {};
+  for (const key of allowedFields) {
+    if (customerData[key] !== undefined) {
+      updateData[key] = customerData[key];
+    }
+  }
+  return await CustomerModel.findByIdAndUpdate(id, { $set: updateData }, { new: true });
 }
 
 async function login(user){
-  const customer=await CustomerModel.findOne({"email":user.email});
+  const customer=await CustomerModel.findOne({"email": { $eq: user.email } });
   if(customer){
     const resultat= await bcrypt.compare(user.password,customer.password);
     if (resultat ){
