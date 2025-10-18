@@ -10,9 +10,9 @@
   "license": "ISC",
   "keywords": [],
   "dependencies": {
-    "bcrypt": "^5.1.1",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.1",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
     "mogoose": "^0.0.1-security",
     "mongodb": "^6.10.0",
     "mongoose": "^8.7.2"
