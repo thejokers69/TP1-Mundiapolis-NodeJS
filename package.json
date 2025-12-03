@@ -13,17 +13,17 @@
   "dependencies": {
     "bcrypt": "^6.0.0",
     "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "express-rate-limit": "^7.5.0",
-    "mogoose": "^0.0.1-security",
-    "mongodb": "^6.10.0",
-    "mongoose": "^8.9.5"
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1",
+    "mogoose": "0.0.1-security",
+    "mongodb": "^7.0.0",
+    "mongoose": "^9.0.0"
   },
   "description": "",
   "devDependencies": {
-    "@eslint/js": "^9.38.0",
-    "eslint": "^9.38.0",
-    "globals": "^16.4.0",
-    "nodemon": "^3.1.10"
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "nodemon": "^3.1.11"
   }
 }
