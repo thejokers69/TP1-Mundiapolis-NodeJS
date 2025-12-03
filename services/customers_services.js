@@ -8,8 +8,20 @@ function isValidObjectId(id) {
 }
 
 function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email) && email.length <= 254; // RFC 5321 limit
+  // Check length first to prevent ReDoS attacks
+  if (!email || typeof email !== 'string' || email.length > 254) {
+    return false;
+  }
+
+  // Use a safer regex pattern that avoids catastrophic backtracking
+  // This pattern uses atomic groups conceptually by avoiding nested quantifiers
+  // Format: local-part@domain.tld
+  // Local part: alphanumeric, dots, underscores, hyphens, plus signs
+  // Domain: alphanumeric, dots, hyphens
+  // TLD: 2+ letters
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  
+  return emailRegex.test(email);
 }
 
 function sanitizeEmail(email) {
